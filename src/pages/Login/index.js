@@ -6,7 +6,6 @@ export default function Login() {
   return (
     <Container>
       <Title>Hello World</Title>
-      <small>Chama</small>
       <Paragrafo>Chama la Papai</Paragrafo>
       <button type="button">Enviar</button>
     </Container>

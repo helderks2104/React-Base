@@ -1,25 +1,25 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Title, Paragrafo } from './styled';
 import { Container } from '../../styles/GlobalStyles';
 
-import axios from '../../services/axios';
-
 export default function Login() {
-  React.useEffect(() => {
-    async function getData() {
-      const reponse = await axios.get('/users');
-      const { data } = reponse;
-      // eslint-disable-next-line no-console
-      console.log(data);
-    }
+  const dispatch = useDispatch();
 
-    getData();
-  }, []);
+  function handleClick(e) {
+    e.preventDefault();
+    dispatch({
+      type: 'BOTAO_CLICADO',
+    });
+  }
+
   return (
     <Container>
       <Title>Hello World</Title>
       <Paragrafo>Chama la Papai</Paragrafo>
-      <button type="button">Enviar</button>
+      <button type="button" onClick={handleClick}>
+        Enviar
+      </button>
     </Container>
   );
 }
